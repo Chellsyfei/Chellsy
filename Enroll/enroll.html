@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+<body>
+    <div class="container">
+        
+        <h1>College Admission Form</h1>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <!-- Personal Information Section -->
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Course Selection Section -->
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    <option value="bsc_computer">B.Sc. in Information Technology</option>
+                    <option value="bba">BBA</option>
+                    <option value="ba_english">BA in English</option>
+                    <option value="engineering">B.Tech in Engineering</option>
+                </select>
+            </div>
+            <form action="#" method="post">
+                <label for="country">Select Your Country of Citizenship:</label>
+                <select id="country" name="country" required>
+                    <option value="" disabled selected>Select a country</option>
+                    <option value="USA">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="India">India</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="SouthAfrica">South Africa</option>
+                    <option value="Philippines">Philippines</option>
+                    <!-- Add more countries as needed -->
+                </select><br><br>
+        
+
+            </select>
+
+            <form action="#" method="post">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="^\+?\d{0,13}" placeholder="e.g. +1234567890"><br><br>
+        
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="e.g. example@example.com"><br><br>
+        
+                <label for="address">Mailing Address:</label>
+                <textarea id="address" name="address" rows="4" cols="50" required placeholder="Enter your address"></textarea><br><br>
+        
+                <input type="submit" value="Submit">
+            </form>
+        
+            <!-- Documents Upload Section -->
+            <div class="form-group">
+                <label for="documents">Upload Required Documents</label>
+                <input type="file" id="documents" name="documents" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="button-container">
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </div>
+        </form>
+    </div>
+
+    </head>
+    <body>
+   <br> <div class="container">
+        <h2>Education Information Form</h2>
+    
+        <form action="#" method="post">
+            <!-- Level of Education -->
+            <label for="education-level">Level of Education:</label>
+            <select id="education-level" name="education-level" required>
+                <option value="" disabled selected>Select education level</option>
+                <option value="highschool">High School</option>
+                <option value="bachelors">Bachelor's Degree</option>
+                <option value="masters">Master's Degree</option>
+                <option value="phd">PhD</option>
+            </select><br><br>
+    
+            <!-- Institution Name -->
+            <label for="institution-name">Institution Name:</label>
+            <input type="text" id="institution-name" name="institution-name" required placeholder="Enter institution name"><br><br>
+    
+            <!-- Graduation Year -->
+            <label for="graduation-year">Graduation Year:</label>
+            <input type="number" id="graduation-year" name="graduation-year" min="1900" max="2100" required placeholder="Enter graduation year"><br><br>
+    
+            <!-- Major/Field of Study -->
+            <label for="major">Major/Field of Study:</label>
+            <input type="text" id="major" name="major" required placeholder="Enter your major or field of study"><br><br>
+    
+            <!-- Additional Information -->
+            <label for="additional-info">Additional Information:</label>
+            <textarea id="additional-info" name="additional-info" rows="4" cols="50" placeholder="Enter any additional information (optional)"></textarea><br><br>
+    
+            <!-- Submit Button -->
+            <input type="submit" value="Submit">
+        </form>
+    </div> 
+    </head>
+    <body>
+    
+      <br>  <div class="container">
+            <h2>Application Fee Payment</h2>
+            
+            <label for="applicantName">Applicant Name:</label>
+            <input type="text" id="applicantName" placeholder="Enter your name" required>
+    
+            <label for="feeAmount">Application Fee Amount ($):</label>
+            <input type="number" id="feeAmount" placeholder="Enter fee amount" required>
+    
+            <label for="feePercentage">Fee Percentage:</label>
+            <input type="number" id="feePercentage" placeholder="Fee Percentage" value="5" required>
+    
+            <button onclick="calculateApplicationFee()">Calculate Fee</button>
+    
+            <div class="result" id="result" style="display: none;">
+                <p><strong>Application Fee:</strong> $<span id="calculatedFee"></span></p>
+                <p><strong>Total Amount (Including Fee):</strong> $<span id="totalAmount"></span></p>
+            </div>
+        </div>
+    
+        <script>
+            function calculateApplicationFee() {
+                // Get the input values
+                const applicantName = document.getElementById('applicantName').value;
+                const feeAmount = parseFloat(document.getElementById('feeAmount').value);
+                const feePercentage = parseFloat(document.getElementById('feePercentage').value);
+    
+                // Validate input
+                if (!applicantName || isNaN(feeAmount) || feeAmount <= 0) {
+                    alert("Please enter valid information.");
+                    return;
+                }
+    
+                // Calculate the application fee
+                const applicationFee = (feeAmount * feePercentage) / 100;
+                const totalAmount = feeAmount + applicationFee;
+    
+                // Display the result
+                document.getElementById('calculatedFee').textContent = applicationFee.toFixed(2);
+                document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+                document.getElementById('result').style.display = 'block';
+            }
+        </script>
+    </body>
+    </html>
+    
+</body>
+<script src="script.js"></script>
+</html>
